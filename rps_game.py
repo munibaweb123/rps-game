@@ -17,10 +17,10 @@ def get_winner(player1, player2):
 def main():
     st.title("✊✋✌ Rock, Paper, Scissors Game")
 
-    st.write("### Player 1, choose your move:")
+    st.write("# 🤷Player 1, choose your move:")
     player1 = st.selectbox("Player 1", list(choices.keys()))
 
-    st.write("### Player 2, choose your move:")
+    st.write("# 🤷Player 2, choose your move:")
     player2 = st.selectbox("Player 2", list(choices.keys()))
 
     if st.button("Play! 🎮"):
