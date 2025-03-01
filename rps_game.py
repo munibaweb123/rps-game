@@ -1,3 +1,4 @@
+import random
 import streamlit as st
 
 # Mapping of choices
@@ -17,11 +18,21 @@ def get_winner(player1, player2):
 def main():
     st.title("✊✋✌ Rock, Paper, Scissors Game")
 
-    st.write("# 🤷Player 1, choose your move:")
+    # choose game mode
+    game_mode = st.radio("Select Game Mode:", ["🧑‍🤝‍🧑 Player1 vs Player2" , "🆚 Player vs Computer"])
+
+    
+    st.write("## 🤷Player 1, choose your move:")
     player1 = st.selectbox("Player 1", list(choices.keys()))
 
-    st.write("# 🤷Player 2, choose your move:")
-    player2 = st.selectbox("Player 2", list(choices.keys()))
+    #player1 vs player2
+    if game_mode == "🧑‍🤝‍🧑 Player1 vs Player2":
+
+        st.write("## 🤷Player 2, choose your move:")
+        player2 = st.selectbox("Player 2", list(choices.keys()))
+    else:
+        player2 = random.choice(list(choices.keys()))
+        st.write("## computer choose:",player2)
 
     if st.button("Play! 🎮"):
         result = get_winner(player1, player2)
